@@ -6,13 +6,14 @@ import otp.SmsOtpSender;
 import otp.WpOtpSender;
 
 public class UserService {
-    private OtpSender otpSender;
-    private BaseRepository baseRepository;
-    //Constructor injection
-    public UserService(OtpSender otp,BaseRepository baseRepository) {
+    private final OtpSender otpSender;
+    private final BaseRepository baseRepository;
+
+    public UserService(OtpSender otpSender, BaseRepository baseRepository) {
+        this.otpSender = otpSender;
         this.baseRepository = baseRepository;
-        this.otpSender = otp;
     }
+    //Constructor injection
 
     public void add(User user) {
         baseRepository.add(user);

@@ -2,6 +2,7 @@ import core.Student;
 import core.Teacher;
 import core.User;
 import core.UserService;
+import database.BaseRepository;
 import database.TeacherRepository;
 import otp.MailOtpSender;
 import otp.SmsOtpSender;
@@ -15,11 +16,12 @@ public class Main {
         Teacher teacher = new Teacher(2,"Mira","5678",3000,"IT");
 
         User[] users = {student,teacher};
-        UserService userService = new UserService(new SmsOtpSender(),new TeacherRepository());
+        UserService userService = new UserService(new SmsOtpSender(),new BaseRepository());
 
         for(User i : users ){
             userService.add(i);
             userService.remove(i);
         }
+
     }
 }

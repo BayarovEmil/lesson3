@@ -1,7 +1,6 @@
 package otp;
 
-public class OtpSender {
-    public void sendOtp() {
-        System.out.println("Otp gonderildi");
-    }
+public interface OtpSender {
+    void sendOtp();
+    void generateOtp();
 }
